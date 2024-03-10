@@ -18,6 +18,7 @@ getgit(gitlink, branch, name):
 
 class AutoRedeploy():
     def run(time):
+        auto=true
         while auto:
             with open('config.json') as f:
                 data = json.load(f)
@@ -32,11 +33,10 @@ class AutoRedeploy():
                     repo = git.repo(link, branch)
                     sha = str(repo.head.object.hexsha)
                     if sha != curver:
-                        getgit(link, branch, name)
+                        getgit(link, name)
                 f.close()
-            sleep(time)
+            time.sleep(time)
     """ TODO
-        - Define auto
         - catch/disable
         - sleep
     """
