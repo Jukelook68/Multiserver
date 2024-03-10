@@ -9,5 +9,8 @@
         "github": "https://your.github.link",
         "branch": "master",
         "command": "command to start your program"
+    }},
+"settings":{
+        "checktime": "60"
     }
 }
