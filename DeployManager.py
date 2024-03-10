@@ -8,15 +8,18 @@ class CloneProgress(RemoteProgress):
         if message:
             print(message) 
 
-getgit(gitlink, branch, dir):
+getgit(gitlink, branch, name):
     print('Cloning into %s' % git_root)
-    git.Repo.clone_from(gitlink, dir, 
+    repo = git.Repo.clone_from(gitlink, "projects/"+name, 
             branch=branch, progress=CloneProgress())
+    f = open("projects/"+name+"/multiserver.txt", "x")
+    f.write(str(repo.head.object.hexsha))
+    f.close()
 
 class AutoRedeploy():
-    def run():
+    def run(time):
         while auto:
-            with open('strings.json') as f:
+            with open('config.json') as f:
                 data = json.load(f)
                     for x in data[]:
                         name=x
@@ -24,12 +27,13 @@ class AutoRedeploy():
                         branch=x[1]
                         rcom=x[2]
 
-                        curver = open(name+"/version.txt"
+                        curver = open("projects/"+name+"/multiserver.txt")
                 
                         repo = git.repo(link, branch)
-                        sha = repo.head.object.hexsha
+                        sha = str(repo.head.object.hexsha)
                         if sha != curver:
-                            getgit()
+                            getgit(link, branch, name)
+        sleep(time)
     """ TODO
         - Define curver and auto
         - auto branch and dir
