@@ -1,4 +1,4 @@
-from Threading import Thread
+⁵from Threading import Thread
 import git
 import deployManager
 
@@ -16,6 +16,6 @@ with open('config.json') as f:
             Thread(target = run).start()
 
         autotime=data[1][0]
-        DeployManager.AutoDeploy.run()
+        deployManager.AutoDeploy.run()
 
 
