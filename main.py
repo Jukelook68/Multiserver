@@ -1,6 +1,6 @@
 from Threading import Thread
 import git
-import DeployManager
+import deployManager
 
 with open('config.json') as f:
         data = json.load(f)
@@ -12,7 +12,7 @@ with open('config.json') as f:
             
             gitget(link, branch, name)
             importlib.devalidatecache()
-            project = importlib.import_module("programs/"+name)
+            project = importlib.import_module("programs."+name+".main")
             Thread(target = run).start()
 
         autotime=data[1][0]
