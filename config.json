@@ -1,11 +1,13 @@
 {
-projects:{
-    Project:{
-        "github": "https://your.github.link"
+"projects":{
+    "Project":{
+        "github": "https://your.github.link",
+        "branch": "master"
         "command": "command to start your program"
-    }
-    AnotherProject:{
-        "github": "https://your.github.link"
+    },
+    "AnotherProject":{
+        "github": "https://your.github.link",
+        "branch": "master"
         "command": "command to start your program"
     }
 }
