@@ -1,4 +1,4 @@
-⁵from Threading import Thread
+from Threading import Thread
 import git
 import deployManager
 
